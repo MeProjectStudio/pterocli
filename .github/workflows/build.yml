@@ -1,0 +1,50 @@
+name: Build pterocli
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+  PROJECT_NAME: pterocli
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        include:
+          - name: linux-amd64
+            runner: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - name: linux-arm64
+            runner: ubuntu-latest
+            target: aarch64-unknown-linux-gnu
+          - name: win-amd64
+            runner: windows-latest
+            target: x86_64-pc-windows-msvc
+          - name: macos-amd64
+            runner: macos-latest
+            target: x86_64-apple-darwin
+          - name: macos-arm64
+            runner: macos-latest
+            target: aarch64-apple-darwin
+
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v4
+      
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        targets: "${{ matrix.target }}"
+    - name: Setup Cache
+      uses: Swatinem/rust-cache@v2
+    
+    - name: Build Binary
+      run: cargo build --verbose --locked --release --target ${{ matrix.target }}
+    - name: Run tests
+      run: cargo test --verbose
