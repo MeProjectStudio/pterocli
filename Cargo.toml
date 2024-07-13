@@ -1,0 +1,31 @@
+[package]
+name = "pterocli"
+version = "0.1.0"
+edition = "2021"
+authors = ["rkkm"]
+license = "MIT"
+description = "CLI for Pterodactyl Panel"
+keywords = ["cli", "api"]
+categories = ["command-line-utilities"]
+homepage = "https://github.com/MeProjectStudio/pterocli"
+repository = "hhttps://github.com/MeProjectStudio/pterocli"
+
+[dependencies]
+clap = { version = "4.5.8", features = ["cargo", "derive", "env"] }
+pterodactyl_api = "0.1.1"
+reqwest = { version = "0.11", features = ["multipart", "blocking"] }
+tabled = "0.15.0"
+tokio = { version = "1.38.0", features = ["full"] }
+uuid = "1.10.0"
+wild = "2.2.1"
+
+[profile.dev]
+incremental = true
+
+[profile.release]
+strip = true  # Automatically strip symbols from the binary.
+opt-level = "z"  # Optimize for size.
+lto = true # Link Time Optimization
+codegen-units = 1
+panic = "abort"
+
