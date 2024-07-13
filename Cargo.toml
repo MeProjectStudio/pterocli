@@ -11,9 +11,9 @@ homepage = "https://github.com/MeProjectStudio/pterocli"
 repository = "hhttps://github.com/MeProjectStudio/pterocli"
 
 [dependencies]
-clap = { version = "4.5.8", features = ["cargo", "derive", "env"] }
+clap = { version = "4.5.9", features = ["cargo", "derive", "env"] }
 pterodactyl_api = "0.1.1"
-reqwest = { version = "0.11", features = ["multipart", "blocking"] }
+reqwest = { version = "0.12.5", features = ["multipart", "blocking"] }
 tabled = "0.15.0"
 tokio = { version = "1.38.0", features = ["full"] }
 uuid = "1.10.0"
@@ -28,4 +28,3 @@ opt-level = "z"  # Optimize for size.
 lto = true # Link Time Optimization
 codegen-units = 1
 panic = "abort"
-
