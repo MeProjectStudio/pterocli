@@ -11,12 +11,10 @@ jobs:
     steps:
       - name: Download artifacts for release
         uses: actions/download-artifact@v4
-        with:
-          path:  target/*/release/
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           prerelease: true
           files: |
-            target/*/release/*
+            pterocli*
