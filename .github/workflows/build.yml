@@ -50,10 +50,3 @@ jobs:
           target/${{ matrix.target }}/release/pterocli.exe
           target/${{ matrix.target }}/release/pterocli
 
-    - name: Release
-      uses: softprops/action-gh-release@v2
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        prerelease: true
-        files: |
-          output/pterocli*
