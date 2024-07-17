@@ -209,7 +209,7 @@ fn handle_send_command(client: &Client, matches: &ArgMatches) {
         .unwrap_or_default()
         .map(|v| v.as_str())
         .collect::<Vec<_>>();
-    let command = matches.get_one::<String>("command").unwrap();
+    let command = matches.get_one::<String>("command").expect("Unable to parse command to send");
 
     for server in servers {
         Runtime::new().unwrap()
