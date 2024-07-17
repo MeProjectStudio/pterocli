@@ -46,13 +46,13 @@ jobs:
       uses: actions/upload-artifact@v4
       if: matrix.os != 'windows-latest'
       with:
-        name: pterocli-${{ matrix.target }}
+        name: pterocli-${{ matrix.name }}
         path: target/${{ matrix.target }}/release/pterocli
 
-    - name: Upload ${{ matrix.target }} pterocli artifact
+    - name: Upload ${{ matrix.name }} pterocli artifact
       uses: actions/upload-artifact@v4
       if: matrix.os == 'windows-latest'
       with:
-        name: pterocli-${{ matrix.target }}.exe
+        name: pterocli-${{ matrix.name }}.exe
         path: target/${{ matrix.target }}/release/pterocli.exe
 
