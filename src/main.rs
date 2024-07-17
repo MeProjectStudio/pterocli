@@ -146,7 +146,7 @@ fn main() {
                                 .arg(arg!(<BACKUP_UUID> "Backup UUID"))
                         )
                 )
-        ).get_matches_from(wild::args());
+        ).get_matches();
 
     match matches.subcommand() {
         Some(("client", sub_m)) => {
