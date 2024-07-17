@@ -77,7 +77,7 @@ fn main() {
                 .subcommand(
                     Command::new("sendcommand")
                         .about("Sends console command to a server")
-                        .arg(arg!(<COMMAND> "Console command to send to a server"))
+                        .arg(arg!("command": <COMMAND> "Console command to send to a server"))
                 )
                 .subcommand(
                     Command::new("upload")
