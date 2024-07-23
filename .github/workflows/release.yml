@@ -23,6 +23,7 @@ jobs:
         run: |
           mv dist/pterocli-macos-amd64/pterocli pterocli-macos-amd64
           mv dist/pterocli-linux-amd64/pterocli pterocli-linux-amd64
+          mv dist/pterocli-linux-amd64-musl/pterocli pterocli-linux-amd64-musl
           mv dist/pterocli-win-amd64.exe/pterocli.exe pterocli-win-amd64.exe
 
       - name: Create release
@@ -34,4 +35,5 @@ jobs:
           files: |
             pterocli-macos-amd64
             pterocli-linux-amd64
+            pterocli-linux-amd64-musl
             pterocli-win-amd64.exe
